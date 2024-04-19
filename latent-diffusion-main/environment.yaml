@@ -1,0 +1,27 @@
+name: ldm2
+channels:
+  - pytorch
+  - defaults
+Platform: osx-arm64
+dependencies:
+  - python=3.8
+  # Remove pip=20.3 line
+  # Optional, remove if not using Nvidia GPU
+  - pytorch=1.13.1  # Update to a version with ARM support
+  - torchvision=0.14.1  # Update to a compatible version with PyTorch
+  - pip:
+    - albumentations==0.4.3
+    - opencv-python  # Check for ARM compatible version (e.g., 4.8.0)
+    - pudb==2019.2
+    - imageio==2.9.0
+    - imageio-ffmpeg==0.4.2
+    - pytorch-lightning==1.4.2
+    - omegaconf==2.1.1
+    - test-tube>=0.7.5
+    - streamlit>=0.73.1
+    - einops==0.3.0
+    - torch-fidelity==0.3.0
+    - transformers==4.3.1
+    - -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers  # Check for ARM compatibility
+    - -e git+https://github.com/openai/CLIP.git@main#egg=clip  # Check for ARM compatibility
+    - -e .
